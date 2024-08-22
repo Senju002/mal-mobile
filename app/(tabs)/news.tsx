@@ -18,7 +18,7 @@ export default function HomeScreen() {
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title" className="text-red-500">
-          Welcome! Warman Gay
+          News
         </ThemedText>
         <Text className="text-red-500">Gay</Text>
         <HelloWave />

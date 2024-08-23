@@ -6,10 +6,19 @@ type ImageItem = {
   title: string;
 };
 
-const AnimeList: React.FC<{ data: ImageItem[]; sectionTitle: string }> = ({ data, sectionTitle }) => {
+interface AnimeListProps {
+  data: ImageItem[];
+  sectionTitle: string;
+}
+
+const AnimeList: React.FC<AnimeListProps> = ({ data, sectionTitle }) => {
   const renderItem = ({ item }: { item: ImageItem }) => (
     <View style={styles.imageContainer}>
-      <Image source={{ uri: item.uri }} style={styles.image} />
+      <Image 
+        source={{ uri: item.uri }} 
+        style={styles.image} 
+        accessibilityLabel={item.title} 
+      />
       <Text style={styles.imageTitle}>{item.title}</Text>
     </View>
   );
@@ -31,15 +40,15 @@ const AnimeList: React.FC<{ data: ImageItem[]; sectionTitle: string }> = ({ data
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 8, // Reduces padding for better alignment
-    marginTop: 25
+    paddingHorizontal: 8,
+    marginTop: 20,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 12,
     color: '#254287',
-    marginLeft: 8, // Aligns with image's left edge
+    marginLeft: 8,
   },
   list: {
     paddingBottom: 16,
@@ -51,8 +60,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 300, // Adjusted to be more portrait-oriented
-    borderRadius: 12, // Rounded rectangle
+    height: 300,
+    borderRadius: 12,
     resizeMode: 'cover',
   },
   imageTitle: {

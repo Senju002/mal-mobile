@@ -7,7 +7,7 @@ const TopSection: React.FC = () => {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container}> 
             {/* Left: Hamburger Button */}
             <TouchableOpacity style={styles.iconButton} >
                 <MaterialIcons name="menu" size={28} color="#fff" />

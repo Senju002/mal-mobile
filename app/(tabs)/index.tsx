@@ -2,7 +2,6 @@ import { Image, StyleSheet, View, Platform, Text, ScrollView, SafeAreaView } fro
 import TopSection from "@/components/TopSection";
 import AnimeList from "@/components/AnimeList";
 import ImageSlider from "@/components/ImageSlider";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
 
 // Dummy for Upcoming Anime
 const imageUrls = [

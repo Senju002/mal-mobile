@@ -1,7 +1,8 @@
-import { Image, StyleSheet, View, Platform, Text } from "react-native";
+import { Image, StyleSheet, View, Platform, Text, ScrollView, SafeAreaView } from "react-native";
 import TopSection from "@/components/TopSection";
 import AnimeList from "@/components/AnimeList";
 import ImageSlider from "@/components/ImageSlider";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
 
 // Dummy for Upcoming Anime
 const imageUrls = [
@@ -21,14 +22,17 @@ const sampleData = [
 
 export default function HomeScreen() {
   return (
-    <View>
-      {/* Top Navigation, consist of hamburger button, head title, profille and notification */}
-      <TopSection />
-      {/* Upcoming Anime */}
-      <ImageSlider data={imageUrls} sectionTitle="Upcoming Anime" />
-      {/* Weekly Trending Anime*/}
-      <AnimeList data={sampleData} sectionTitle="Trending This Week" />
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
+        {/* Top Navigation, consist of hamburger button, head title, profille and notification */}
+        <TopSection />
+        {/* Upcoming Anime */}
+        <ImageSlider data={imageUrls} sectionTitle="Upcoming Anime" />
+        {/* Weekly Trending Anime*/}
+        <AnimeList data={sampleData} sectionTitle="Trending This Week" />
+      </ScrollView>
+    </SafeAreaView>
+
   );
 }
 

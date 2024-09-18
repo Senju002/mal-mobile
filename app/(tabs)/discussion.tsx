@@ -1,16 +1,17 @@
-import React from 'react';
-import { View, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
-import TopSection from '@/components/TopSection';
-import SearchBar from '@/components/SearchBar';
-import FilterButton from '@/components/FilterButton';
-import ChatDiscussion from '@/components/ChatDiscussion';
+import React from "react";
+import { View, StyleSheet, ScrollView } from "react-native";
+import TopSection from "@/components/TopSection";
+import SearchBar from "@/components/SearchBar";
+import FilterButton from "@/components/FilterButton";
+import ChatDiscussion from "@/components/ChatDiscussion";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Discussion = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView className="flex-1">
       <ScrollView>
         <TopSection />
-        <View style={styles.container}>
+        <View className="flex-1 bg-white-100 p-4 ">
           <SearchBar label="Search Discussion" />
           <FilterButton />
           <ChatDiscussion />
@@ -19,13 +20,5 @@ const Discussion = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#f4f4f4',
-  }
-});
 
 export default Discussion;

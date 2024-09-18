@@ -1,8 +1,16 @@
-import React, { useState, useRef } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Text, Animated, Dimensions } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React, { useState, useRef } from "react";
+import {
+  View,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Animated,
+  Dimensions,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get("window");
 
 type ImageItem = {
   uri: string;
@@ -59,16 +67,22 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ data, sectionTitle }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} className="bg-white-100">
       <Text style={styles.sectionTitle}>{sectionTitle}</Text>
       <View style={styles.sliderContainer}>
-        <TouchableOpacity onPress={goToPreviousImage} style={[styles.arrowContainer, styles.leftArrow]}>
+        <TouchableOpacity
+          onPress={goToPreviousImage}
+          style={[styles.arrowContainer, styles.leftArrow]}
+        >
           <Ionicons name="chevron-back" size={24} color="#fff" />
         </TouchableOpacity>
 
         {renderImage()}
 
-        <TouchableOpacity onPress={goToNextImage} style={[styles.arrowContainer, styles.rightArrow]}>
+        <TouchableOpacity
+          onPress={goToNextImage}
+          style={[styles.arrowContainer, styles.rightArrow]}
+        >
           <Ionicons name="chevron-forward" size={24} color="#fff" />
         </TouchableOpacity>
       </View>
@@ -79,30 +93,30 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ data, sectionTitle }) => {
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 8,
-    marginTop: 20,
+    paddingTop: 20,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 12,
-    color: '#254287',
+    color: "#254287",
     marginLeft: 8,
   },
   sliderContainer: {
-    position: 'relative',
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: "relative",
+    justifyContent: "center",
+    alignItems: "center",
     margin: 8,
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 200,
     borderRadius: 12,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   arrowContainer: {
-    position: 'absolute',
-    top: '50%',
+    position: "absolute",
+    top: "50%",
     transform: [{ translateY: -12 }],
     padding: 8,
     zIndex: 1,
@@ -114,21 +128,21 @@ const styles = StyleSheet.create({
     right: 10,
   },
   labelContainer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 10,
     left: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderRadius: 8,
   },
   labelText: {
-    color: '#333',
+    color: "#333",
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   animatedImage: {
-    width: '100%',
+    width: "100%",
   },
 });
 

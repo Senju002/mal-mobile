@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, FlatList } from 'react-native';
+import React from "react";
+import { View, Text, Image, StyleSheet, FlatList } from "react-native";
 
 type ImageItem = {
   uri: string;
@@ -13,19 +13,23 @@ interface AnimeListProps {
 
 const AnimeList: React.FC<AnimeListProps> = ({ data, sectionTitle }) => {
   const renderItem = ({ item }: { item: ImageItem }) => (
-    <View style={styles.imageContainer}>
-      <Image 
-        source={{ uri: item.uri }} 
-        style={styles.image} 
-        accessibilityLabel={item.title} 
+    <View className="flex-1 m-2 items-center">
+      <Image
+        source={{ uri: item.uri }}
+        className="w-full h-56 object-cover rounded-xl"
+        accessibilityLabel={item.title}
       />
-      <Text style={styles.imageTitle}>{item.title}</Text>
+      <Text className="mt-2 text-sm text-primary text-center">
+        {item.title}
+      </Text>
     </View>
   );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.sectionTitle}>{sectionTitle}</Text>
+    <View className="bg-white-100 py-2 px-5">
+      <Text className=" text-lg font-bold mb-3 text-primary ">
+        {sectionTitle}
+      </Text>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -39,36 +43,8 @@ const AnimeList: React.FC<AnimeListProps> = ({ data, sectionTitle }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 8,
-    marginTop: 20,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 12,
-    color: '#254287',
-    marginLeft: 8,
-  },
   list: {
     paddingBottom: 16,
-  },
-  imageContainer: {
-    flex: 1,
-    margin: 8,
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: 300,
-    borderRadius: 12,
-    resizeMode: 'cover',
-  },
-  imageTitle: {
-    marginTop: 8,
-    fontSize: 14,
-    color: '#254287',
-    textAlign: 'center',
   },
 });
 
